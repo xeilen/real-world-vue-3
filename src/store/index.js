@@ -1,4 +1,5 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
+import EventService from "../services/EventService";
 
 export default createStore({
   state: {
@@ -21,20 +22,31 @@ export default createStore({
       { id: 3, text: 'todo 3', done: false },
       { id: 4, text: 'todo 4', done: true },
     ],
-    events: [
-      { id: 1, title: 'title events 1', organizer: 'organizer 1'},
-      { id: 2, title: 'title events 2', organizer: 'organizer 2'},
-      { id: 3, title: 'title events 3', organizer: 'organizer 3'},
-      { id: 4, title: 'title events 4', organizer: 'organizer 4'},
-    ]
+    eventsOld: [
+      { id: 1, title: 'title events 1', organizer: 'organizer 1' },
+      { id: 2, title: 'title events 2', organizer: 'organizer 2' },
+      { id: 3, title: 'title events 3', organizer: 'organizer 3' },
+      { id: 4, title: 'title events 4', organizer: 'organizer 4' },
+    ],
+    events: [],
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    ADD_EVENT(state, event) {
+      state.events.push(event)
+    }
+  },
+  actions: {
+    createEvent({ commit }, event) {
+      EventService.postEvent(event).then(() => commit('ADD_EVENT', event))
+    }
+  },
   getters: {
-    catLength: state => state.categories.length,
-    doneTodos: state => state.todos.filter(todo => todo.done),
-    activeTodos: (state, getters) => state.todos.length - getters.doneTodos.length,
-    getEventById: state => id => state.events.find(event => event.id === id)
+    catLength: (state) => state.categories.length,
+    doneTodos: (state) => state.todos.filter((todo) => todo.done),
+    activeTodos: (state, getters) =>
+      state.todos.length - getters.doneTodos.length,
+    getEventById: (state) => (id) =>
+      state.events.find((event) => event.id === id),
   },
   modules: {},
-});
+})

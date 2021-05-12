@@ -23,8 +23,10 @@ export default {
   },
   created() {
     EventService.getEvents()
-      .then(response => this.events = response.data)
-      .catch(e => console.log(e))
+      .then((response) => {
+        this.events = response.data;
+      })
+      .catch((e) => console.log(e))
   },
 }
 </script>
