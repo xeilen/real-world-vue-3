@@ -1,8 +1,9 @@
 <template>
   <h1>Events for goods</h1>
-  <div class="events">
+  <div v-if="events" class="events">
     <EventCard v-for="event in events" :event="event" :key="event.id" />
   </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script>
