@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import EventService from '../services/EventService'
 import BaseIcon from "../components/BaseIcon";
+import { mapState } from 'vuex'
 export default {
   name: 'EventDetails',
   components: { BaseIcon },
@@ -38,14 +38,16 @@ export default {
   },
   data() {
     return {
-      event: null,
     }
   },
   created() {
-    EventService.getEvent(this.id)
-      .then((res) => (this.event = res.data))
-      .catch((e) => console.log(e))
+    this.$store.dispatch('fetchEventDetails', this.id)
   },
+  computed: {
+    ...mapState({
+      event: 'eventDetails',
+    })
+  }
 }
 </script>
 
