@@ -6,6 +6,7 @@
       <h5>Organized by {{ event.organizer }}</h5>
       <h5>Category: {{ event.category }}</h5>
     </div>
+    <h1>Test commit</h1>
 
     <BaseIcon name="map"><h2>Location</h2></BaseIcon>
 
