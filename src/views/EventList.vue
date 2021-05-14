@@ -1,7 +1,7 @@
 <template>
-  <h1>Events for {{ user.user.name }}</h1>
-  <div v-if="!isLoading" class="events">
-    <EventCard v-for="event in events" :event="event" :key="event.id" />
+  <h1>Events for {{ user44.userModule.name }}</h1>
+  <div v-if="!eventModule.isLoading" class="events">
+    <EventCard v-for="singleEvent in eventModule.events" :event="singleEvent" :key="singleEvent.id" />
   </div>
   <div v-else>Loading...</div>
 
@@ -32,18 +32,18 @@ export default {
     EventCard,
   },
   created() {
-    this.$store.dispatch('fetchEvents', {
+    this.$store.dispatch('eventModule/fetchEvents', {
       perPage: 3,
       page: this.page,
     })
   },
   computed: {
-    ...mapState(['events', 'isLoading', 'totalEvents', 'user']),
+    ...mapState(['eventModule', 'user44']),
     page() {
       return parseInt(this.$route.query.page) || 1
     },
     calcLastPage() {
-      return this.totalEvents / 3
+      return this.eventModule.totalEvents / 3
     }
   }
 }

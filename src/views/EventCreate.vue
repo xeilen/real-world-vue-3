@@ -92,7 +92,7 @@ export default {
     createEvent() {
       console.log(this.event)
       this.$store
-        .dispatch('createEvent', this.event)
+        .dispatch('eventModule/createEvent', this.event)
         .then(() => {
           this.$router.push({
             name: 'EventDetails',
@@ -106,7 +106,7 @@ export default {
     },
     createFreshEventObject() {
       const id = Math.floor(Math.random() * 10000000)
-      const user = this.$store.state.user.user.name
+      const user = this.$store.state.user44.userModule.name
       return {
         id,
         user,

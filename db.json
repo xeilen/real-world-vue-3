@@ -303,6 +303,102 @@
       "date": "2021-05-21",
       "time": "2:00",
       "attendees": []
+    },
+    {
+      "id": 7575591,
+      "user": "Nazar Kovalenko",
+      "category": "food",
+      "organizer": "Nazar Kovalenko",
+      "title": "edafserfasef",
+      "description": "fasefasefasef",
+      "location": "asefasefasefasefasef",
+      "date": "2021-05-10",
+      "time": "1:00",
+      "attendees": []
+    },
+    {
+      "id": 5468026,
+      "user": "Nazar Kovalenko",
+      "category": "housing",
+      "organizer": "Nazar Kovalenko",
+      "title": "faefasef",
+      "description": "",
+      "location": "",
+      "date": "2021-05-20",
+      "time": "12:00",
+      "attendees": []
+    },
+    {
+      "id": 9933402,
+      "user": "Nazar Kovalenko",
+      "category": "education",
+      "organizer": "Nazar Kovalenko",
+      "title": "епканер",
+      "description": "веарваер",
+      "location": "ваереар",
+      "date": "2021-05-11",
+      "time": "15:00",
+      "attendees": []
+    },
+    {
+      "id": 2459038,
+      "user": "Nazar Kovalenko",
+      "category": "",
+      "organizer": "Nazar Kovalenko",
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 4038085,
+      "user": "Nazar Kovalenko",
+      "category": "food",
+      "organizer": "Nazar Kovalenko",
+      "title": "asefasefasef",
+      "description": "asefasefasef",
+      "location": "asefasefasefas",
+      "date": "2021-05-12",
+      "time": "21:00",
+      "attendees": []
+    },
+    {
+      "id": 2430208,
+      "user": "Nazar Kovalenko",
+      "category": "housing",
+      "organizer": "Nazar Kovalenko",
+      "title": "jghujhu",
+      "description": "jkghukghukgh",
+      "location": "ukghukghuk",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 7072034,
+      "user": "Nazar Kovalenko",
+      "category": "housing",
+      "organizer": "Nazar Kovalenko",
+      "title": "fasefase",
+      "description": "asefasef",
+      "location": "asefasefase",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 8445441,
+      "user": "Nazar Kovalenko",
+      "category": "education",
+      "organizer": "Nazar Kovalenko",
+      "title": "fasefase",
+      "description": "fasef",
+      "location": "",
+      "date": "",
+      "time": "18:00",
+      "attendees": []
     }
   ]
 }

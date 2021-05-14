@@ -30,25 +30,27 @@
 
 <script>
 import BaseIcon from "../components/BaseIcon";
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'EventDetails',
   components: { BaseIcon },
   props: {
-    id: Number,
+    id: [Number, String],
   },
   data() {
     return {
     }
   },
   created() {
-    this.$store.dispatch('fetchEventDetails', this.id)
+    // this.$store.dispatch('eventModule/fetchEventDetails', this.id)
+    this.fetchEventDetails(this.id)
   },
   computed: {
     ...mapState({
-      event: 'eventDetails',
-    })
-  }
+      event: state => state.eventModule.eventDetails,
+    }),
+  },
+  methods: mapActions('eventModule',['fetchEventDetails'])
 }
 </script>
 

@@ -1,5 +1,5 @@
 export const state = {
-  user: {
+  userModule: {
     id: 567,
     name: 'Nazar Kovalenko'
   }
