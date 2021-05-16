@@ -18,5 +18,5 @@ export default {
   },
   postEvent(event) {
     return apiClient.post('/events', event)
-  }
+  },
 }

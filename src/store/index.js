@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
-import * as user44 from "./modules/user";
-import * as eventModule from "./modules/event";
-import * as notifications from "./modules/notifications";
+import * as user44 from './modules/user'
+import * as eventModule from './modules/event'
+import * as notificationsModule from './modules/notifications'
 
 export default createStore({
   state: {
@@ -18,6 +18,6 @@ export default createStore({
   modules: {
     user44,
     eventModule,
-    notifications,
+    notificationsModule,
   },
 })

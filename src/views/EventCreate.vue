@@ -90,19 +90,7 @@ export default {
   // },
   methods: {
     createEvent() {
-      console.log(this.event)
-      this.$store
-        .dispatch('eventModule/createEvent', this.event)
-        .then(() => {
-          this.$router.push({
-            name: 'EventDetails',
-            params: { id: this.event.id },
-          })
-          this.event = this.createFreshEventObject()
-        })
-        .catch(() => {
-          console.log('Error in dispatch')
-        })
+      this.$store.dispatch('eventModule/createEvent', this.event)
     },
     createFreshEventObject() {
       const id = Math.floor(Math.random() * 10000000)

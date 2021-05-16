@@ -1,4 +1,5 @@
 import EventService from '../../services/EventService'
+import router from '../../router'
 export const namespaced = true
 export const state = {
   todos: [
@@ -36,23 +37,30 @@ export const mutations = {
   },
 }
 export const actions = {
-  createEvent({ commit, rootState, dispatch }, event) {
-    console.log('user', rootState.user44.userModule)
+  createEvent({ commit, dispatch, state }, event) {
+    console.log('in create event, before POST method')
     EventService.postEvent(event)
       .then(() => {
+        console.log('before commit ADD EVENT')
         commit('ADD_EVENT', event)
+        console.log('after commit')
+        console.log(state.events)
         const notification = {
           type: 'success',
           message: 'Your event has been created!',
         }
-        dispatch('notifications/add', notification, { root: true })
+        dispatch('notificationsModule/add', notification, { root: true })
+        router.push({
+          name: 'EventDetails',
+          params: { id: event.id },
+        })
       })
       .catch((e) => {
         const notification = {
           type: 'error',
-          message: 'There was a problem creating events: ' + e.message,
+          message: 'There was a problem creating event: ' + e.message,
         }
-        dispatch('notifications/add', notification, { root: true })
+        dispatch('notificationsModule/add', notification, { root: true })
       })
   },
   fetchEvents({ commit, dispatch }, { perPage, page }) {
@@ -62,17 +70,24 @@ export const actions = {
         commit('SET_TOTAL_EVENTS', response.headers['x-total-count'])
         commit('CHANGE_LOADING', false)
         commit('SET_EVENTS', response.data)
+        const notification = {
+          type: 'success',
+          message: 'Successful fetching events!',
+        }
+        dispatch('notificationsModule/add', notification, { root: true })
       })
       .catch((e) => {
         const notification = {
           type: 'error',
           message: 'There was a problem fetching events: ' + e.message,
         }
-        dispatch('notifications/add', notification, { root: true })
+        dispatch('notificationsModule/add', notification, { root: true })
       })
   },
   fetchEventDetails({ commit, getters, dispatch }, eventID) {
     const event = getters.getEventById(+eventID)
+    console.log('it should be after redirect')
+    console.log('event!!!!', event)
     if (event) {
       commit('SET_EVENT_DETAILS', event)
     } else {
@@ -85,7 +100,7 @@ export const actions = {
             type: 'error',
             message: 'There was a problem fetching event: ' + e.message,
           }
-          dispatch('notifications/add', notification, { root: true })
+          dispatch('notificationsModule/add', notification, { root: true })
         })
     }
   },
