@@ -19,6 +19,7 @@
 
       <h3>Name & describe your event</h3>
       <div class="field">
+        <BaseInput label="Title 2" v-model="event.title" type="text" />
         <label>Title</label>
         <input
           type="text"
@@ -66,8 +67,10 @@
 <script>
 // import { mapState, mapGetters } from 'vuex'
 // import Datepicker from 'vuejs-datepicker'
+import BaseInput from "../components/BaseInput";
 export default {
   components: {
+    BaseInput
     // Datepicker,
   },
   data() {

@@ -1011,6 +1011,30 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 5821187,
+      "user": "Nazar Kovalenko",
+      "category": "animal welfare",
+      "organizer": "Nazar Kovalenko",
+      "title": "Real World Events",
+      "description": "Real World Events",
+      "location": "Real World Events",
+      "date": "2021-05-22",
+      "time": "19:00",
+      "attendees": []
+    },
+    {
+      "id": 4898097,
+      "user": "Nazar Kovalenko",
+      "category": "",
+      "organizer": "Nazar Kovalenko",
+      "title": "50564564563567486484784678467",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
