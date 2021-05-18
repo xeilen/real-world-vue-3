@@ -12,12 +12,6 @@
     <option
       v-for="option in options"
       :key="option"
-      v-bind="{
-        ...$attrs,
-        onChange: ($event) => {
-          $emit('update:modelValue', $event.target.value)
-        },
-      }"
       :value="option"
       :selected="option === modelValue"
     >
