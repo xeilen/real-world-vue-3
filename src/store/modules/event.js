@@ -82,6 +82,11 @@ export const actions = {
           message: 'There was a problem fetching events: ' + e.message,
         }
         dispatch('notificationsModule/add', notification, { root: true })
+        if (e.response && e.response.status === 404) {
+          router.push({ name: '404Resource', params: { resource: 'event' } })
+        } else {
+          router.push({ name: 'NetworkError' })
+        }
       })
   },
   fetchEventDetails({ commit, getters, dispatch }, eventID) {
@@ -100,7 +105,12 @@ export const actions = {
             type: 'error',
             message: 'There was a problem fetching event: ' + e.message,
           }
-          dispatch('notificationsModule/add', notification, { root: true })
+          dispatch('notificationsModule/add', notification, { root: true });
+          if (e.response && e.response.status === 404) {
+            router.push({ name: '404Resource', params: { resource: 'event' } })
+          } else {
+            router.push({ name: 'NetworkError' })
+          }
         })
     }
   },

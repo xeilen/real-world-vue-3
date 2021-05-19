@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import BaseIcon from "./BaseIcon";
+import BaseIcon from './BaseIcon'
 export default {
   name: 'HelloWorld',
   components: { BaseIcon },
