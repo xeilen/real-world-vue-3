@@ -13,7 +13,7 @@
     <router-link
       :to="{ name: 'EventList', query: { page: page - 1 } }"
       rel="prev"
-      :class="{hidden: page === 1}"
+      :class="{ hidden: page === 1 }"
     >
       Prev Page
     </router-link>
@@ -28,7 +28,11 @@
       </div>
       <div v-if="page > 3" class="pagination__item">...</div>
 
-      <div v-for="pageNum in toRenderPagesNumber" :key="pageNum" class="pagination__item">
+      <div
+        v-for="pageNum in toRenderPagesNumber"
+        :key="pageNum"
+        class="pagination__item"
+      >
         <router-link
           :class="{ active: +pageNum === page }"
           :to="{ name: 'EventList', query: { page: pageNum } }"
@@ -52,7 +56,7 @@
     <router-link
       :to="{ name: 'EventList', query: { page: page + 1 } }"
       rel="next"
-      :class="{hidden: page === calcLastPage}"
+      :class="{ hidden: page === calcLastPage }"
     >
       Next Page
     </router-link>
@@ -76,6 +80,9 @@ export default {
   components: {
     EventCard,
   },
+  // beforeRouteEnter(routeTo, routeFrom, next) {
+  //
+  // },
   created() {
     watchEffect(() => {
       this.$store.dispatch('eventModule/fetchEvents', {

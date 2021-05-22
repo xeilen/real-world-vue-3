@@ -32,7 +32,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('notificationsModule', ['remove'])
+    ...mapActions('notificationsModule', ['remove']),
   },
 
 }

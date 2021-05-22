@@ -1,9 +1,12 @@
 <template>
   <div id="app">
+    <div id="flashMessage" v-if="flashMessage">
+      {{ flashMessage }}
+    </div>
     <NavBar />
     <NotificationContainer />
   </div>
-<!--  <router-view :key="$route.fullPath" />-->
+  <!--  <router-view :key="$route.fullPath" />-->
   <router-view />
 </template>
 
@@ -231,11 +234,28 @@ select:focus::ms-value {
 select::ms-expand {
   opacity: 0;
 }
+@keyframes yellowfade {
+  from {
+    background: yellow;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+#flashMessage {
+  animation-name: yellowfade;
+  animation-duration: 3s;
+}
 </style>
 <script>
 import NavBar from './components/NavBar'
 import NotificationContainer from './components/NotificationContainer'
+import { mapState } from 'vuex'
 export default {
   components: { NotificationContainer, NavBar },
+  computed: {
+    ...mapState('notificationsModule', ['flashMessage']),
+  },
 }
 </script>

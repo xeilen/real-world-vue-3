@@ -1,5 +1,6 @@
 import EventService from '../../services/EventService'
 import router from '../../router'
+import NProgress from 'nprogress'
 export const namespaced = true
 export const state = {
   todos: [
@@ -64,6 +65,7 @@ export const actions = {
       })
   },
   fetchEvents({ commit, dispatch }, { perPage, page }) {
+    NProgress.start()
     commit('CHANGE_LOADING', true)
     EventService.getEvents(perPage, page)
       .then((response) => {
@@ -88,6 +90,9 @@ export const actions = {
           router.push({ name: 'NetworkError' })
         }
       })
+      .finally(() => {
+        NProgress.done()
+      })
   },
   fetchEventDetails({ commit, getters, dispatch }, eventID) {
     const event = getters.getEventById(+eventID)
@@ -96,6 +101,7 @@ export const actions = {
     if (event) {
       commit('SET_EVENT_DETAILS', event)
     } else {
+      NProgress.start()
       EventService.getEvent(eventID)
         .then((response) => {
           commit('SET_EVENT_DETAILS', response.data)
@@ -105,12 +111,15 @@ export const actions = {
             type: 'error',
             message: 'There was a problem fetching event: ' + e.message,
           }
-          dispatch('notificationsModule/add', notification, { root: true });
+          dispatch('notificationsModule/add', notification, { root: true })
           if (e.response && e.response.status === 404) {
             router.push({ name: '404Resource', params: { resource: 'event' } })
           } else {
             router.push({ name: 'NetworkError' })
           }
+        })
+        .finally(() => {
+          NProgress.done()
         })
     }
   },

@@ -18,10 +18,10 @@
         :options="categories"
         label="Select category 2"
       />
-<!--      <label>Select a category</label>-->
-<!--      <select v-model="event.category">-->
-<!--        <option v-for="cat in categories" :key="cat">{{ cat }}</option>-->
-<!--      </select>-->
+      <!--      <label>Select a category</label>-->
+      <!--      <select v-model="event.category">-->
+      <!--        <option v-for="cat in categories" :key="cat">{{ cat }}</option>-->
+      <!--      </select>-->
 
       <h3>Name & describe your event</h3>
       <div class="field">
@@ -73,12 +73,12 @@
 <script>
 // import { mapState, mapGetters } from 'vuex'
 // import Datepicker from 'vuejs-datepicker'
-import BaseInput from "../components/BaseInput";
-import BaseSelect from "../components/BaseSelect";
+import BaseInput from '../components/BaseInput'
+import BaseSelect from '../components/BaseSelect'
 export default {
   components: {
     BaseSelect,
-    BaseInput
+    BaseInput,
     // Datepicker,
   },
   data() {

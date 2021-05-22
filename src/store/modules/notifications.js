@@ -2,6 +2,7 @@ export const namespaced = true
 
 export const state = {
   notifications: [],
+  flashMessage: '',
 }
 
 let nextId = 1
@@ -18,6 +19,9 @@ export const mutations = {
       (notification) => notification.id !== notificationToRemove.id
     )
   },
+  SET_FLESH_MESSAGE(state, message) {
+    state.flashMessage = message
+  },
 }
 
 export const actions = {
@@ -28,5 +32,8 @@ export const actions = {
   },
   remove({ commit }, notificationToRemove) {
     commit('DELETE', notificationToRemove)
+  },
+  setFleshMessage({ commit }, message) {
+    commit('SET_FLESH_MESSAGE', message)
   },
 }
