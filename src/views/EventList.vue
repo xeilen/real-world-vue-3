@@ -86,7 +86,7 @@ export default {
   created() {
     watchEffect(() => {
       this.$store.dispatch('eventModule/fetchEvents', {
-        perPage: 3,
+        perPage: 2,
         page: this.page,
       })
     })
@@ -97,7 +97,7 @@ export default {
     //   return parseInt(this.$route.query.page) || 1
     // },
     calcLastPage() {
-      return Math.ceil(this.eventModule.totalEvents / 3)
+      return Math.ceil(this.eventModule.totalEvents / 2)
     },
     generatePagesArray() {
       return [...Array(this.calcLastPage).keys()]
